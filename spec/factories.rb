@@ -5,6 +5,17 @@ FactoryGirl.define do
     password "foobar"
     password_confirmation "foobar"
   end
+  
+  factory :questionnaire do
+    title "Example questionnaire"
+  end
+  
+  factory :question do
+    type "Short"
+    content "Example content"
+    choices " "
+    questionnaire
+  end
 end
 
 def sign_in(user)

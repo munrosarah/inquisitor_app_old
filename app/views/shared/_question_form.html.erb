@@ -1,0 +1,14 @@
+<%= form_for(current_questionnaire.questions.build(params[:question])) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="field">
+      <%= f.hidden_field :questionnaire_id %>
+      
+      <%= f.label :type %>
+      <%= f.text_field :type %>
+      
+      <%= f.label :content %>
+      <%= f.text_field :content %>
+  </div>
+  <%= f.submit "Add Question", class: "btn btn-large btn-primary" %>
+<% end %>
