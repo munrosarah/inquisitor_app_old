@@ -1,0 +1,15 @@
+<% provide(:title, 'Create questionnaire') %>
+<h1>Create Questionnaire</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@questionnaire) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+
+      <%= f.submit "Create Questionnaire", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
