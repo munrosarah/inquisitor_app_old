@@ -2,7 +2,6 @@ InquisitorApp::Application.routes.draw do
 
 
   resources :users
-  resources :questionnaires
   resources :questions
   resources :sessions, only: [:new, :create, :destroy]
 
