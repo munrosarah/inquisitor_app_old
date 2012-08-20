@@ -1,8 +1,17 @@
 FactoryGirl.define do
   factory :user do
-    name     "Escher Munro"
-    email    "escher@fake.com"
-    password "biscuit"
-    password_confirmation "biscuit"
+    sequence(:name)  { |n| "Person #{n}" }
+    sequence(:email) { |n| "person_#{n}@example.com"}
+    password "foobar"
+    password_confirmation "foobar"
   end
+end
+
+def sign_in(user)
+  visit signin_path
+  fill_in "Email",    with: user.email
+  fill_in "Password", with: user.password
+  click_button "Sign in"
+  # Sign in when not using Capybara as well.
+  cookies[:remember_token] = user.remember_token
 end
